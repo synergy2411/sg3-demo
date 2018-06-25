@@ -4,9 +4,10 @@
     Welcome to {{ title }}!
   </h1>
   <input type="text" [(ngModel)]="title">
-  
+
  </div>
- <app-user [abc]="title" [user]="user">
+ <app-user [abc]="title" [user]="user" 
+  (childChanged)="changeChild($event)">
    <header>Header Info</header>
    <main class="section">Main Contents</main>
    <footer>Footer Info</footer>

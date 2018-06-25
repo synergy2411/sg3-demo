@@ -10,6 +10,11 @@ import { User } from './model/user';
 export class AppComponent {
   title = 'app';
   user : User;
+
+  changeChild(eventdata : any){
+    this.title = eventdata;
+  }
+
   constructor(){
 
   }

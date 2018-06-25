@@ -8,14 +8,19 @@ import {
     AfterContentChecked,
     AfterViewInit,
     AfterViewChecked,
-    OnDestroy
+    OnDestroy,
+    ChangeDetectionStrategy,
+    Output,
+    EventEmitter
 } from '@angular/core';
 import { User } from '../model/user';
+
 
 @Component({
     selector: 'app-user',
     // template : `<h1>User Component Loaded!!</h1>`
-    templateUrl: './user.component.html'
+    templateUrl: './user.component.html',
+    //changeDetection : ChangeDetectionStrategy.Default
 })
 export class UserComponent implements OnChanges,
     OnInit,
@@ -27,6 +32,11 @@ export class UserComponent implements OnChanges,
     OnDestroy {
     @Input('abc') title: string;
     @Input('user') user: User;
+    @Output('childChanged') childChanged = new EventEmitter<string>();
+
+    onKeyup(value:  string){
+        this.childChanged.emit(value);
+    }
 
     moreInfo(user: User) {
         alert(`${user.firstName} is working with ${user.company} !!`);
