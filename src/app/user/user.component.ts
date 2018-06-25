@@ -33,7 +33,8 @@ export class UserComponent implements OnChanges,
     @Input('abc') title: string;
     @Input('users') users: User[];
     @Output('childChanged') childChanged = new EventEmitter<string>();
-
+    id : number = 2;
+    
     onKeyup(value:  string){
         this.childChanged.emit(value);
     }
