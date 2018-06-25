@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { USER_DATA } from './data/user-data';
+import { User } from './model/user';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  user : User;
+  constructor(){
+
+  }
+  ngOnInit(){
+    this.user = USER_DATA;
+  }
 }

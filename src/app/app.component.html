@@ -3,6 +3,11 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <input type="text" [(ngModel)]="title">
   
  </div>
- <app-user></app-user>
+ <app-user [abc]="title" [user]="user">
+   <header>Header Info</header>
+   <main class="section">Main Contents</main>
+   <footer>Footer Info</footer>
+ </app-user>
