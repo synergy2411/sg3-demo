@@ -31,7 +31,7 @@ export class UserComponent implements OnChanges,
     AfterViewChecked,
     OnDestroy {
     @Input('abc') title: string;
-    @Input('user') user: User;
+    @Input('users') users: User[];
     @Output('childChanged') childChanged = new EventEmitter<string>();
 
     onKeyup(value:  string){

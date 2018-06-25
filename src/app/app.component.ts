@@ -9,7 +9,7 @@ import { User } from './model/user';
 })
 export class AppComponent {
   title = 'app';
-  user : User;
+  users : User[];
 
   changeChild(eventdata : any){
     this.title = eventdata;
@@ -19,6 +19,6 @@ export class AppComponent {
 
   }
   ngOnInit(){
-    this.user = USER_DATA;
+    this.users = USER_DATA;
   }
 }

@@ -1,10 +1,10 @@
 <div class="container">
     <h1 class="text-center text-primary">
         Title from Parent : {{ title }}
+    </h1>
         Child Control : 
             <input type="text" #childControl 
             (keyup)="onKeyup(childControl.value)">
-    </h1>
 </div>
 
 <!-- Data Projection -->
@@ -14,7 +14,7 @@
 
 <div class="container">
     <ul class="list-unstyled">
-        <li class="well">
+        <li class="well" *ngFor="let user of users">
             <div class="row">
                 <div class="col-xs-2 col-sm-2 col-md-2">
                     <img [src]="user.image" class="img-responsive img-rounded" >
