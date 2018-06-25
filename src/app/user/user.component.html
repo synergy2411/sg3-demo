@@ -1,63 +1,62 @@
 <div class="container">
-<h1 class="text-center text-primary">
-    Title from Parent : {{ title }}
-</h1>
-    Child Control : 
-        <input type="text" #childControl 
-        (keyup)="onKeyup(childControl.value)">
+    <h1 class="text-center text-primary">
+        Title from Parent : {{ title }}
+    </h1>
+    Child Control :
+    <input type="text" #childControl (keyup)="onKeyup(childControl.value)">
 </div>
 
 <!-- Data Projection -->
 <div class="container">
-<ng-content select="header"></ng-content>
+    <ng-content select="header"></ng-content>
 </div>
 
 <div class="container">
-<ul class="list-unstyled">
-    <li class="well" *ngFor="let user of users; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd;">
-        <div class="row">
-            <div class="col-xs-2 col-sm-2 col-md-2">
-                {{i}}
-                <br>
-                IsEven ? {{ isEven }}
-                <img [src]="user.image" class="img-responsive img-rounded" >
-                <button 
-                    (click)="moreInfo(user)"
-                    class="btn btn-info btn-sm">More Info</button>
-            </div>
-            <div class="col-xs-10 col-sm-10 col-md-10">
-                <h1>{{ user.firstName }} {{ user.lastName }}</h1>
-                <p>Date Of Birth : {{ user.dob }}</p>
-                <p *ngIf="user.isWorking; else ElseTemplate">
-                    Income : {{ user.income }}</p>
-                <em class=pull-right>
-                    Total Votes  : {{ user.votes }}
-                    <!-- <input type="number" 
+    <ul class="list-unstyled">
+        <li class="well" *ngFor="let user of users; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd;">
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                    {{i}}
+                    <br> IsEven ? {{ isEven }}
+                    <img [src]="user.image" class="img-responsive img-rounded">
+                    <button (click)="moreInfo(user)" class="btn btn-info btn-sm">More Info</button>
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-10">
+                    <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+                    <p>Date Of Birth : {{ user.dob }}</p>
+                    <!-- <ng-template [ngIf]="user.isWorking">
+                        <p>Income....</p>
+                    </ng-template> -->
+                    <p *ngIf="user.isWorking; else ElseTemplate">
+                        Income : {{ user.income }}</p>
+                    <em class=pull-right>
+                        Total Votes : {{ user.votes }}
+                        <!-- <input type="number" 
                         [value]="user.votes"
                         (change)="user.votes=$event.target.value"> -->
-                    <input type="number" [(ngModel)]="user.votes">
-                    <!-- input type="number" [ngModel]="user.votes" (ngModelChange)="$event" -->
-                </em>
+                        <input type="number" [(ngModel)]="user.votes">
+                        <!-- input type="number" [ngModel]="user.votes" (ngModelChange)="$event" -->
+                    </em>
+                </div>
+                <ng-template #ElseTemplate>
+                    <p>{{user.firstName }} is not working now!</p>
+                </ng-template>
             </div>
-            <ng-template #ElseTemplate>
-                <p>{{user.firstName }} is not working now!</p>
-            </ng-template>
-        </div>
-    </li>
-</ul>
+        </li>
+    </ul>
 </div>
 <div class="container">
-<ng-content select=".section"></ng-content>
+    <ng-content select=".section"></ng-content>
 </div>
 <div class="container">
-<ng-content select="footer"></ng-content>
+    <ng-content select="footer"></ng-content>
 </div>
 
 
 <!-- 
 <div [ngSwitch]="id">
-    <div *ngSwitchCase="'1'">One </div>
-    <div *ngSwitchCase="'2'"> Two</div>
-    <div *ngSwitchCase="'3'"> Three</div>
-    <div *ngSwitchDefault> Default</div>
+<div *ngSwitchCase="'1'">One </div>
+<div *ngSwitchCase="'2'"> Two</div>
+<div *ngSwitchCase="'3'"> Three</div>
+<div *ngSwitchDefault> Default</div>
 </div> -->
