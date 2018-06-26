@@ -1,3 +1,5 @@
+<!-- {{ users | json }} -->
+
 <div class="container">
     <h1 class="text-center text-primary">
         Title from Parent : {{ title }}
@@ -22,9 +24,10 @@
                     <button (click)="moreInfo(user)" class="btn btn-info btn-sm">More Info</button>
                 </div>
                 <div class="col-xs-10 col-sm-10 col-md-10">
-                    <h1 appHighlight [myColor]="myColor" [defaultColor]="'aqua'">{{ user.firstName }} {{ user.lastName }}</h1>
+                    <h1 appHighlight [myColor]="myColor" [defaultColor]="'aqua'">
+                        {{ user.firstName | uppercase }} {{ user.lastName | uppercase}}</h1>
                     <!-- <p [ngClass]="{'feature' : isEven, 'tranform' : isOdd}" >Date Of Birth : {{ user.dob }}</p> -->
-                    <p [ngClass]="myClasses">Date Of Birth : {{ user.dob }}</p>
+                    <p [ngClass]="myClasses">Date Of Birth : {{ user.dob | date : 'MM/dd/yyyy' }}</p>
                     <!-- <ng-template [ngIf]="user.isWorking">
                         <p>Income....</p>
                     </ng-template> -->
@@ -32,7 +35,7 @@
                         Income : {{ user.income }}</p> -->
 
                     <p *appUnless="!user.isWorking">
-                            Income : {{ user.income }}
+                            Income : {{ user.income | currency : 'EUR'}}
                     </p>
                     
                         <em class=pull-right>
