@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pipe-demo.component.css']
 })
 export class PipeDemoComponent implements OnInit {
-  data : any;
-  futureData = new Promise((resolve, reject)=>{
-    setTimeout(()=>{
-      this.data ="Some Data !";
+  data: any;
+  futureData = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      this.data = "Some Data !";
       resolve("Here comes the data...")
     }, 2000)
   })
@@ -17,23 +17,23 @@ export class PipeDemoComponent implements OnInit {
   filteredStatus = "";
 
   todos = [{
-    label : "Some Work",
-    status : 'done'
-  },{
-    label : "Some Work",
-    status : 'pending'
-  },{
-    label : "Some Work",
-    status : 'done'
-  },{
-    label : "Some Work",
-    status : 'pending'
+    label: "Some Work",
+    status: 'done'
+  }, {
+    label: "Some Work",
+    status: 'pending'
+  }, {
+    label: "Some Work",
+    status: 'done'
+  }, {
+    label: "Some Work",
+    status: 'pending'
   }]
 
-  addTodo(){
+  addTodo() {
     this.todos.push({
-      'label' :"New Work",
-      'status' : "pending"
+      'label': "New Work",
+      'status': "pending"
     })
   }
 

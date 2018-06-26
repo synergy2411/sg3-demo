@@ -1,6 +1,6 @@
 <div class="container">
   <p>
-    Future Data : {{ futureData | async  }}
+    Future Data : {{ futureData | async }}
   </p>
   <p>
     Data : {{ data }}
@@ -11,15 +11,14 @@
   <input type="text" [(ngModel)]="filteredStatus">
   <br>
   <button class="btn btn-primary" (click)="addTodo()">Add New Todo </button>
+  <hr>
   <ul class="list-group">
-    <li *ngFor="let todo of todos | filter : filteredStatus : 'status'" class="list-group-item">
-      {{ todo.label }} 
+    <li *ngFor="let todo of todos | filter : filteredStatus : 'status'" 
+      class="list-group-item">
+      {{ todo.label }}
       <span class="badge">
         {{ todo.status }}
       </span>
     </li>
   </ul>
-
-
-
 </div>
