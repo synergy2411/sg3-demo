@@ -11,8 +11,9 @@ export class DataService{
         return USER_DATA;
     }
     getHttpData(){
-      return this.http.get("assets/user-data.json")
-            .map(response=><User[]>response.json().userdata);
+     return this.http.get("https://sg4-demo.firebaseio.com/userdata.json")
+            .map(response=><User[]>response.json())
+            
     }
     constructor(private http : Http){}
 }
