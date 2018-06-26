@@ -14,6 +14,7 @@ import {
     EventEmitter
 } from '@angular/core';
 import { User } from '../model/user';
+import { DataService } from '../services/data.service';
 
 
 @Component({
@@ -26,7 +27,8 @@ import { User } from '../model/user';
     //         border : 2px red solid;
     //     }
     // `],
-    styleUrls: [`./user.component.css`]
+    styleUrls: [`./user.component.css`],
+    providers : [DataService]
 })
 export class UserComponent implements OnChanges,
     OnInit,
@@ -54,17 +56,23 @@ export class UserComponent implements OnChanges,
         alert(`${user.firstName} is working with ${user.company} !!`);
         this.myClasses.tranform = true;
     }
-    constructor(){console.log("Constructor!")}
-    ngOnChanges(changes: SimpleChanges) {
-        console.log('ngOnChanges fired!')
-        console.log(changes);
+    increase(){
+        this.dataService.counter++;
     }
-    ngOnInit() { console.log("ngOnInit") }
-    ngDoCheck() { console.log("ngDoCheck") }
-    ngAfterContentChecked() { console.log("ngAfterContentChecked") }
-    ngAfterContentInit() { console.log("ngAfterContentInit") }
-    ngAfterViewInit() { console.log("ngAfterViewInit") }
-    ngAfterViewChecked() { console.log("ngAfterViewChecked") }
-    ngOnDestroy() { console.log("ngOnDestroy") }
+    constructor(public dataService : DataService){
+       // console.log("Constructor!")
+    }
+    
+    // ngOnChanges(changes: SimpleChanges) {
+    //     console.log('ngOnChanges fired!')
+    //     console.log(changes);
+    // }
+    // ngOnInit() { console.log("ngOnInit") }
+    // ngDoCheck() { console.log("ngDoCheck") }
+    // ngAfterContentChecked() { console.log("ngAfterContentChecked") }
+    // ngAfterContentInit() { console.log("ngAfterContentInit") }
+    // ngAfterViewInit() { console.log("ngAfterViewInit") }
+    // ngAfterViewChecked() { console.log("ngAfterViewChecked") }
+    // ngOnDestroy() { console.log("ngOnDestroy") }
 
 }
