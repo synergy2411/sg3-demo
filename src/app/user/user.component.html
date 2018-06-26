@@ -22,15 +22,20 @@
                     <button (click)="moreInfo(user)" class="btn btn-info btn-sm">More Info</button>
                 </div>
                 <div class="col-xs-10 col-sm-10 col-md-10">
-                    <h1 appHighlight [defaultColor]="'yellow'">{{ user.firstName }} {{ user.lastName }}</h1>
+                    <h1 appHighlight [myColor]="myColor" [defaultColor]="'aqua'">{{ user.firstName }} {{ user.lastName }}</h1>
                     <!-- <p [ngClass]="{'feature' : isEven, 'tranform' : isOdd}" >Date Of Birth : {{ user.dob }}</p> -->
                     <p [ngClass]="myClasses">Date Of Birth : {{ user.dob }}</p>
                     <!-- <ng-template [ngIf]="user.isWorking">
                         <p>Income....</p>
                     </ng-template> -->
-                    <p *ngIf="user.isWorking; else ElseTemplate">
-                        Income : {{ user.income }}</p>
-                    <em class=pull-right>
+                    <!-- <p *ngIf="user.isWorking; else ElseTemplate">
+                        Income : {{ user.income }}</p> -->
+
+                    <p *appUnless="!user.isWorking">
+                            Income : {{ user.income }}
+                    </p>
+                    
+                        <em class=pull-right>
                         Total Votes : {{ user.votes }}
                         <!-- <input type="number" 
                         [value]="user.votes"
@@ -61,3 +66,5 @@
 <div *ngSwitchCase="'3'"> Three</div>
 <div *ngSwitchDefault> Default</div>
 </div> -->
+
+<!-- ng g d directives/unless --spec false -->
