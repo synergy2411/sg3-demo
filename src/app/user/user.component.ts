@@ -20,7 +20,13 @@ import { User } from '../model/user';
     selector: 'app-user',
     // template : `<h1>User Component Loaded!!</h1>`
     templateUrl: './user.component.html',
-    //changeDetection : ChangeDetectionStrategy.Default
+    //changeDetection : ChangeDetectionStrategy.Default,
+    // styles :   [`
+    //     .feature{
+    //         border : 2px red solid;
+    //     }
+    // `],
+    styleUrls: [`./user.component.css`]
 })
 export class UserComponent implements OnChanges,
     OnInit,
@@ -34,13 +40,19 @@ export class UserComponent implements OnChanges,
     @Input('users') users: User[];
     @Output('childChanged') childChanged = new EventEmitter<string>();
     id : number = 2;
-    
+    myClasses = {
+        'feature' : true, 
+        'tranform' : false
+    }
+    myColor = "yellow";
+
     onKeyup(value:  string){
         this.childChanged.emit(value);
     }
 
     moreInfo(user: User) {
         alert(`${user.firstName} is working with ${user.company} !!`);
+        this.myClasses.tranform = true;
     }
     constructor(){console.log("Constructor!")}
     ngOnChanges(changes: SimpleChanges) {
