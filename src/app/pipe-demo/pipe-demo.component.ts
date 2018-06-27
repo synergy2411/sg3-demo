@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pipe-demo',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pipe-demo.component.css']
 })
 export class PipeDemoComponent implements OnInit {
+
+  dangerUrl : "javascript:alert('Hello')";
+  htmlSnippets = "Template <script>alert('Hello')</script>";
+
   data: any;
   futureData = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -39,7 +44,9 @@ export class PipeDemoComponent implements OnInit {
 
   contact_no = 987654321;
 
-  constructor() { }
+  constructor(private sanitaize : DomSanitizer) { 
+   // this.sanitaize.
+  }
 
   ngOnInit() {
   }
