@@ -3,7 +3,7 @@ import { USER_DATA } from '../data/user-data';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { User } from '../model/user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { AuthService } from './auth.service';
 
 @Injectable()
@@ -18,10 +18,11 @@ export class DataService{
             
     }
     getHttpClientData(){
-        this.httpClient.get<User[]>("https://sg4-demo.firebaseio.com/userdata.json?auth="
-                +this.authService.getToken())
-                .subscribe(data=>console.log(data));
-            
+        this.httpClient.get<User[]>("https://sg4-demo.firebaseio.com/userdata.json")
+                .subscribe((data)=>console.log(data));
+        // this.httpClient.get("https://sg4-demo.firebaseio.com/userdata.json",{
+        //     params : new HttpParams().set('auth', this.authService.getToken())
+        // })
     }
     constructor(private http : Http,
                 private httpClient : HttpClient,

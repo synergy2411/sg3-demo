@@ -30,14 +30,16 @@ import { DataService } from '../services/data.service';
     styleUrls: [`./user.component.css`],
     providers : [DataService]
 })
-export class UserComponent implements OnChanges,
-    OnInit,
-    DoCheck,
-    AfterContentChecked,
-    AfterContentInit,
-    AfterViewInit,
-    AfterViewChecked,
-    OnDestroy {
+export class UserComponent 
+    // implements OnChanges,
+    // OnInit,
+    // DoCheck,
+    // AfterContentChecked,
+    // AfterContentInit,
+    // AfterViewInit,
+    // AfterViewChecked,
+    // OnDestroy 
+    {
     @Input('abc') title: string;
     @Input('users') users: User[];
     @Output('childChanged') childChanged = new EventEmitter<string>();

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { User } from './model/user';
 import { DataService } from './services/data.service';
 import * as firebase from 'firebase';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -26,9 +27,7 @@ export class AppComponent {
       apiKey: "AIzaSyB3CeOW3Srv85UnCF7oTdiPJu9lGNNuvek",
       authDomain: "sg4-demo.firebaseapp.com"
     });
-    
-    // this.users = this.dataService.getUserData();
-    this.dataService.getHttpData()
-      .subscribe(data=>this.users = data);
+
+    this.users = this.dataService.getUserData()
   }
 }

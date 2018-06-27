@@ -18,6 +18,7 @@ export class AuthService {
           .then(token => {
             console.log(token);
             this.token = token;
+            //localStorage.setItem("token", this.token);
           })
           .catch(err=>console.log(err))
       })
