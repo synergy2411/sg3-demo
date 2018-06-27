@@ -46,6 +46,10 @@ export class PipeDemoComponent implements OnInit {
 
   constructor(private sanitaize : DomSanitizer) { 
    // this.sanitaize.
+  //  for(let i = 0; i<10; i ++){
+  //   console.log(i);
+  //  }
+   
   }
 
   ngOnInit() {

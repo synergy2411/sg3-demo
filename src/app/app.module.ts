@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { EmployeeModule } from './employee/employee.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -25,6 +26,7 @@ import { LoginGaurdService } from './services/login-gaurd.service';
 import { ProductComponent } from './product/product.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { SpecificationComponent } from './product/specification/specification.component';
+import { AnimatedComponent } from './animated/animated.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { SpecificationComponent } from './product/specification/specification.co
     ObsDemoComponent,
     ProductComponent,
     OverviewComponent,
-    SpecificationComponent
+    SpecificationComponent,
+    AnimatedComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { SpecificationComponent } from './product/specification/specification.co
     HttpModule,
     HttpClientModule,
     RouterModule.forRoot(APP_ROUTES),
-    EmployeeModule
+    EmployeeModule,
+    BrowserAnimationsModule
   ],
   providers: [DataService, 
     AuthService, 
