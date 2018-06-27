@@ -21,7 +21,7 @@ export class AppComponent {
     this.title = eventdata;
   }
 
-  constructor(public dataService : DataService){ }
+  constructor(public dataService : DataService, public authService : AuthService){ }
   ngOnInit(){
     firebase.initializeApp({
       apiKey: "AIzaSyB3CeOW3Srv85UnCF7oTdiPJu9lGNNuvek",

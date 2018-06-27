@@ -40,18 +40,23 @@ export class UserComponent
     // AfterViewChecked,
     // OnDestroy 
     {
-    @Input('abc') title: string;
-    @Input('users') users: User[];
-    @Output('childChanged') childChanged = new EventEmitter<string>();
+    // @Input('abc') title: string;
+    // @Input('users') users: User[];
+    users : User[];
+    //@Output('childChanged') childChanged = new EventEmitter<string>();
     id : number = 2;
     myClasses = {
         'feature' : true, 
         'tranform' : false
     }
     myColor = "yellow";
+    ngOnInit(){
+        this.dataService.getHttpClientData()
+        .subscribe(data=> this.users = data);
+    }
 
     onKeyup(value:  string){
-        this.childChanged.emit(value);
+      //  this.childChanged.emit(value);
     }
 
     moreInfo(user: User) {

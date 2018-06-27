@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -18,6 +19,11 @@ import { AuthService } from './services/auth.service';
 import { ObsDemoComponent } from './obs-demo/obs-demo.component';
 import { AuthInterceptor } from './services/auth-interceptor';
 import { LoggerInterceptor } from './services/logger-interceptor';
+import { APP_ROUTES } from './app.routing';
+import { LoginGaurdService } from './services/login-gaurd.service';
+import { ProductComponent } from './product/product.component';
+import { OverviewComponent } from './product/overview/overview.component';
+import { SpecificationComponent } from './product/specification/specification.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +36,18 @@ import { LoggerInterceptor } from './services/logger-interceptor';
     FilterPipe,
     LoginComponent,
     RegisterComponent,
-    ObsDemoComponent
+    ObsDemoComponent,
+    ProductComponent,
+    OverviewComponent,
+    SpecificationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [DataService, 
     AuthService, 
@@ -49,7 +59,8 @@ import { LoggerInterceptor } from './services/logger-interceptor';
       provide : HTTP_INTERCEPTORS,
       useClass : LoggerInterceptor,
       multi : true
-    }],
+    }, 
+    LoginGaurdService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -18,8 +18,7 @@ export class DataService{
             
     }
     getHttpClientData(){
-        this.httpClient.get<User[]>("https://sg4-demo.firebaseio.com/userdata.json")
-                .subscribe((data)=>console.log(data));
+       return this.httpClient.get<User[]>("https://sg4-demo.firebaseio.com/userdata.json");
         // this.httpClient.get("https://sg4-demo.firebaseio.com/userdata.json",{
         //     params : new HttpParams().set('auth', this.authService.getToken())
         // })

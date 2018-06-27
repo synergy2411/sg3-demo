@@ -9,11 +9,27 @@
 
 <!-- <app-obs-demo></app-obs-demo> -->
 
+<div class="container">
+  <ul class="list-unstyled nav navbar-nav navbar-default">
+
+    <li *ngIf="!authService.isAuthenticated()"><a [routerLink]="['login']">Login</a></li>
+    <li><a [routerLink]="['register']">Register</a></li>
+    <li><a [routerLink]="['pipe']">Pipe Demo</a></li>
+    <li><a [routerLink]="['obs']">Observable Demo</a></li>
+    <li><a [routerLink]="['user']">User Comp</a></li>
+    <li><a [routerLink]="['product', 4, 'iPhone']"
+         [queryParams]="{'page_no' : 20}">Products</a></li>
+  </ul>
+</div>
+
+
+<router-outlet></router-outlet>
+
 <hr>
 <br>
-<app-register></app-register>
+<!-- <app-register></app-register>
 
-<app-login></app-login>
+<app-login></app-login> -->
 
 <!-- <app-pipe-demo></app-pipe-demo> -->
 
@@ -24,9 +40,10 @@
   <input type="text" [(ngModel)]="title">
 
  </div>
- <app-user [abc]="title" [users]="users" 
+
+ <!-- <app-user [abc]="title" [users]="users" 
   (childChanged)="changeChild($event)">
    <header>Header Info</header>
    <main class="section">Main Contents</main>
    <footer>Footer Info</footer>
- </app-user>
+ </app-user> -->

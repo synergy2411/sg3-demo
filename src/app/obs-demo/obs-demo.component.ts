@@ -46,4 +46,8 @@ export class ObsDemoComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnDestroy(){
+    console.log("Destroy!");
+    this.myObservable.unsubscribe();
+  }
 }

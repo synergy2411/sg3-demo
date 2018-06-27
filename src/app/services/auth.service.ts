@@ -13,10 +13,10 @@ export class AuthService {
   login(username : string, password : string){
     firebase.auth().signInWithEmailAndPassword(username, password)
       .then(response => {
-        console.log(response);
+        //console.log(response);
         firebase.auth().currentUser.getIdToken()
           .then(token => {
-            console.log(token);
+           // console.log(token);
             this.token = token;
             //localStorage.setItem("token", this.token);
           })
@@ -31,6 +31,14 @@ export class AuthService {
       .catch(err => console.log(err));
 
     return this.token;
+  }
+
+  whatUser(){
+    //check the user type
+  }
+  isAuthenticated(){
+    this.whatUser();
+    return this.token != null;
   }
   constructor() { }
 

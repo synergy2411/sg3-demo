@@ -11,7 +11,8 @@ import { DataService } from '../../services/data.service';
 export class LoginComponent implements OnInit {
 
   getApiData(){
-    this.dataService.getHttpClientData();
+    this.dataService.getHttpClientData()
+    .subscribe(data => console.log(data));
   }
   login(loginForm : NgForm){
     console.log("Username : " + loginForm.value.username + 
